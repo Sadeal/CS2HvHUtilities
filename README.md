@@ -1,7 +1,9 @@
 ![Copyright Sadeal](https://img.shields.io/badge/Developer-Sadeal-blue)
 
-# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.0.0)
+# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.0.0) Discord: Sadeal_Dev
 ### If you use this plugin, you do NOT need [RapidFireFix](https://github.com/HvH-gg/RapidFireFix), [TeleportFix](https://github.com/HvH-gg/TeleportFix) and WeaponResctrict anymore.
+
+## If you want this plugin - contact me in Discord: Sadeal_Dev
 
 This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** and **rage quit** as well as optional restrictions or allowence for **weapons**, **friendly fire**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
 
