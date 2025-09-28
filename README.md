@@ -17,7 +17,7 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
 
 # Requirements
 - [Metamod:Source](https://www.sourcemm.net/downloads.php/?branch=master)
-- [CounterStrikeSharp(v284)](https://github.com/roflmuffin/CounterStrikeSharp/releases)
+- [CounterStrikeSharp(latest)](https://github.com/roflmuffin/CounterStrikeSharp/releases)
 
 # Install
 1. Install Metamod:Source and CounterStrikeSharp
