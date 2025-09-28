@@ -100,6 +100,13 @@ For example:
 ...
 ```
 
+# Config helper
+[plugin.sadeal.ru](https://plugin.sadeal.ru/)
+1. Press "Load Default Config"
+2. Paste your previous version config to "Your Current Config"
+3. Press "Merge results"
+4. Copy or edit results in "Merged Configuration" window
+
 # Credits
 - [HvH.gg](https://hvh.gg) - plugin code base
 - [EXHVH](https://exhvh.ru) - servers for testing
