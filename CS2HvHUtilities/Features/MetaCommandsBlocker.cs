@@ -38,7 +38,7 @@ public class MetaCommandsBlocker
             return HookResult.Continue;
         }
 
-        if (AdminManager.PlayerHasPermissions(player, "@css/root")))
+        if (AdminManager.PlayerHasPermissions(player, "@css/root"))
         {
             return HookResult.Continue;
         }

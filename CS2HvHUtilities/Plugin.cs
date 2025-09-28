@@ -31,7 +31,6 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         RapidFire.hvh_restrict_rapidfire.Value = (int) Config.RapidFireFixMethod;
         RapidFire.hvh_rapidfire_print_message.Value = Config.RapidFirePrintMessage;
         RapidFire.hvh_rapidfire_reflect_scale.Value = Config.RapidFireReflectScale;
-        FriendlyFire.hvh_utilities_friendlyfire.Value = Config.UtilitiesFriendlyFire;
         TeleportFix.hvh_restrict_teleport.Value = Config.RestrictTeleport;
         TeleportFix.hvh_teleport_print_message.Value = Config.TeleportPrintMessage;
         WeaponRestrict.hvh_restrict_awp.Value = Config.AllowedAwpCount;
@@ -42,7 +41,6 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         ResetScore.hvh_resetdeath.Value = Config.AllowResetDeath;
         MoneyFix.hvh_money_fix.Value = Config.FixMoneyOnJoin;
         MetaCommandsBlocker.hvh_restrict_meta_commands.Value = Config.RestrictMetaCommands;
-        RageQuit.hvh_ragequit.Value = Config.AllowRageQuit;
     }
 
     public string FormatString(string input, Dictionary<string, object> fieldValues = null)
@@ -254,11 +252,9 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         if (_serviceProvider is null)
             return;
         
-        var friendlyFire = _serviceProvider.GetRequiredService<FriendlyFire>();
         var rapidFire = _serviceProvider.GetRequiredService<RapidFire>();
         
         VirtualFunctions.CBaseEntity_TakeDamageOldFunc.Unhook(rapidFire.OnTakeDamage, HookMode.Pre);
-        VirtualFunctions.CBaseEntity_TakeDamageOldFunc.Unhook(friendlyFire.OnTakeDamage, HookMode.Pre);
         
         var weaponRestrict = _serviceProvider.GetRequiredService<WeaponRestrict>();
         VirtualFunctions.CCSPlayer_WeaponServices_CanUseFunc.Unhook(weaponRestrict.OnWeaponCanAcquire, HookMode.Pre);

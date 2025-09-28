@@ -9,7 +9,6 @@
   "AllowAllWeaponsOnWarmup": true,
   "AllowWeaponsForFlag": "@css/restrict",
   "AllowedOnlyWeapons": "weapon_scar20,weapon_g3sg1",
-  "UtilitiesFriendlyFire": true,
   "RestrictTeleport": true,
   "TeleportPrintMessage": true,
   "RestrictGhost": true,
@@ -23,7 +22,6 @@
   "ResetDeathFlag": "@css/general",
   "ShowResetDeathPrint": true,
   "RestrictMetaCommands": true,
-  "AllowRageQuit": true,
   "ChatPrefix": "[{Blue}Utils{Default}]",
   "CustomPhrasesSettings": {
     "AdvertiseBlockerMessage": "Advertisement is prohibited!",
@@ -34,8 +32,7 @@
     "ResetDeathAlreadyPhrase": "Your deaths are already 0.",
     "RapidFirePhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}double tap{Grey}!",
     "TeleportPhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}Teleport{Grey}!",
-    "WeaponRestrictPhrase": "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!",
-    "RageQuitPhrase": "Player {Orange}{PlayerName}{Grey} has rage quit!"
+    "WeaponRestrictPhrase": "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!"
   },
   "ConfigVersion": 10
 }
