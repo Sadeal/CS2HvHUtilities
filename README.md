@@ -10,7 +10,7 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
 - Reset death `!rd`
 - Restrict weapons (awp, scout, autosniper)
 - Money fix for newly joined player
-- Restrict friendly fire (default, only utility damage)
+- Restrict ghost exploit
 - Restrict rapid fire (0 allows rapid fire, 1 blocks rapid fire from registering shot, 2 reflects damage scaled, 3 reflects damage but keeps the player alive, 4 enables server RapidFire)
 - Restrict players from access MetaMod, CSSharp and SM commands in console.
 - **Linux only:** Restrict teleport/airstuck/fake-pitch exploits (enabling this will also prevent the server crash exploit)
