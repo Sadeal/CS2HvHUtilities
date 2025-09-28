@@ -1,17 +1,13 @@
 ![Copyright Sadeal](https://img.shields.io/badge/Developer-Sadeal-blue)
 
-# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.0.0) Discord: Sadeal_Dev
+# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.1.8) Discord: Sadeal_Dev
 ### If you use this plugin, you do NOT need [RapidFireFix](https://github.com/HvH-gg/RapidFireFix), [TeleportFix](https://github.com/HvH-gg/TeleportFix) and WeaponResctrict anymore.
 
-## If you want this plugin - contact me in Discord: Sadeal_Dev
-
-This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** and **rage quit** as well as optional restrictions or allowence for **weapons**, **friendly fire**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
+This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** as well as optional restrictions or allowence for **weapons**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
 
 # Features
-- Custom Vote support (requires [CS2-CustomVotes](https://github.com/imi-tat0r/CS2-CustomVotes))
 - Reset score `!rs`
 - Reset death `!rd`
-- Rage quit `!rq`
 - Restrict weapons (awp, scout, autosniper)
 - Money fix for newly joined player
 - Restrict friendly fire (default, only utility damage)
@@ -32,39 +28,44 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
 4. Restart your server
 
 # Config
-To reload your config after editing, use `hvh_cfg_reload` in the server console.
 ```json
 {
-   "RapidFireFixMethod": 1, // 0 allows rapid fire, 1 blocks rapid fire, 2 reflects damage scaled, 3 reflects damage but keeps the player alive, 4 enables servers rapid-fire (any user can use it, even midnight)
-   "RapidFirePrintMessage": true, // Allow to print message to all players about someone using rapid fire (shows only when reflect type selected)
-   "RapidFireReflectScale": 1, // damage reflect percentage (0.0 - 1.0)
-   "FixMoneyOnJoin": true, // if true, player that join in any round (except pistol, both halfs) will be given {mp_maxmoney}
-   "AllowedAwpCount": -1, // how many awps are allowed per team (0 for none, -1 for unlimited)
-   "AllowedScoutCount": -1, // how many scouts are allowed per team (0 for none, -1 for unlimited)
-   "AllowedAutoSniperCount": -1, // how many auto snipers are allowed per team (0 for none, -1 for unlimited)
-   "AllowAllWeaponsOnWarmup": true, // when warmup will allow everyone use any count of any weapon (issue: first freezetime is counter as warmup)
-   "AllowWeaponsForFlag": "@css/restrict", // flag for allow to buy any amount of any weapon
-   "AllowedOnlyWeapons": "", // write weapons that shoud be ONLY accesable from rifles and snipers (pistols, utilities will be always accessable). Restriction of weapons will also apply e.g.: "weapon_ssg08,weapon_scar20,weapon_g3sg1"
-   "UnmatchedFriendlyFire": true, // if true, only utility damage will be dealt to teammates (like on unmatched.gg)
-   "RestrictTeleport": true, // if true, the teleport and airstuck exploit will be restricted. This will also prevent the server crash exploit
-   "TeleportPrintMessage": true, // Allow to print message to all players about someone using teleport/airstuck/fakepitch exploits
-   "AllowAdPrint": true, // if true, players will see a "powered by HvH.gg" ad in the chat with the settings print
-   "AllowSettingsPrint": true, // if true, players will see an overview of the server settings with `!settings` and on spawn
-   "AllowResetScore": true, // if true, players will be able to reset their score with `!rs`
-   "ShowResetScorePrint": true, // print in chat that player reset score
-   "AllowResetDeath": 1, // allow to admins(@css/generic) or all players to reset their deaths (0 - off, 1 - admins, 2 - all)
-   "ResetDeathFlag": "@css/general", // which flag will have access to !rd if setted to 1
-   "ShowResetDeathPrint": true, // print in chat that player reset deaths
-   "RestrictMetaCommands": true, // if true, players will NOT be able to get meta/sm/cssharp commands execute
-   "AllowRageQuit": true, // if true, players will be able to rage quit with `!rq`
-   "ChatPrefix": "[{Blue}Utils{Default}]", // chat prefix for plugin messages
-   "CustomVoteSettings": { // settings for custom votes (requires CS2-CustomVotes)
-      "FriendlyFireVote": false, // if true, players will be able to vote for friendly fire settings
-      "TeleportFixVote": false, // if true, players will be able to vote for the teleport fix settings
-      "RapidFireVote": "full", // You can set the style (`off`, `simple`, `full`) for the rapid fire vote
-      "Style":"center" // You can set the style (`center` or `chat`) for the vote menu (might be overridden by CS2-CustomVotes settings)
+   "RapidFireFixMethod": 1, // 0 - allow doubletap, 1 - restrict doubletap, 2 - reflect doubletap (* RapidFireReflectScale) and allow to kill, 3 - reflect doubletap but cant kill with second bullet, 4 - rapidfire feature
+   "RapidFirePrintMessage": false, // true - will print message to all that someone using doubletap, false - not
+   "RapidFireReflectScale": 1, // 0-1 - scale for second bullet of doubletap (0 - 0%, 1 - 100%)
+   "FixMoneyOnJoin": true, // if cvar mp_afterroundmoney is set to 0 and you have pistol rounds - this will fix that someone joining server and have 800 instead of 16000
+   "AllowedAwpCount": -1, // -1 - allow all awp, 0 - awp not allowed, 1 - 1 to each team, 2....
+   "AllowedScoutCount": -1, // -1 - allow all ssg - ssg not allowed, 1 - 1 to each team, 2....
+   "AllowedAutoSniperCount": -1, // -1 - allow all autos, 0 - autos not allowed, 1 - 1 to each team, 2....
+   "AllowAllWeaponsOnWarmup": true, // removes restriction on warmup period for everyone
+   "AllowWeaponsForFlag": "@css/restrict", // flag that ignore weapon restrictions
+   "AllowedOnlyWeapons": "", // list of weapons that ONLY allowed. "weapon_ssg08" - will allow only ssg08, not AK, not AWP and etc. (pistols, nades etc always accessable)
+   "RestrictTeleport": true, // true - restrict teleport, fakepitch, crash
+   "TeleportPrintMessage": false, // will print in chat if someone using exploit
+   "RestrictGhost": true, // will restrict ghost exploit
+   "AllowAdPrint": false, // my ad
+   "AdvertiseBlockerName": true, // will block AD names (neverlose.cc, market/, funpay, ...)
+   "AdvertiseBlockerChat": true, // will block AD in chat
+   "AllowSettingsPrint": true, // will print current server settings (for this plugin) in chat
+   "AllowResetScore": true, // allow !rs
+   "ShowResetScorePrint": true, // will show in chat to all that someone !rs
+   "AllowResetDeath": 0, // 0 - not allowed, 1 - allowed !rd for ResetDeathFlag only, 2 - allow !rd to all
+   "ResetDeathFlag": "@css/general", // flag for !rd
+   "ShowResetDeathPrint": false, // will print message to all that someone !rd
+   "RestrictMetaCommands": true, // restrict anyone except @css/root to type "meta", "css_plugins" etc to game console and get result
+   "ChatPrefix": "[{Red}Utils{Default}]", // chat prefix for !rs, resticts and etc for this plugin
+     "CustomPhrasesSettings": {
+       "AdvertiseBlockerMessage": "Advertisement is prohibited!", // message to user that trying to echo AD
+       "AdvertiseNameChangeTo": "[Player1],[Player2],[Player3]", // will rename to one of this names if user have AD
+       "ResetScorePhrase": "Player {Orange}{PlayerName}{Grey} has reset their stats!", // message for !rs
+       "ResetScoreAlreadyPhrase": "Your stats are already 0.", // message for !rs but already 0
+       "ResetDeathPhrase": "Player {Orange}{PlayerName}{Grey} has reset their deaths!", // message for !rd
+       "ResetDeathAlreadyPhrase": "Your deaths are already 0.", // message for !rd but already 0
+       "RapidFirePhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}double tap{Grey}!", // message for RapidFireFix method 1
+       "TeleportPhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}Teleport{Grey}!", // message for TeleportFix 
+       "WeaponRestrictPhrase": "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!", // Message for WeaponResctrict
    },
-   "ConfigVersion": 8 // do not change, config version
+"ConfigVersion": 10 // not to change
 }
 ```
 
@@ -83,18 +84,10 @@ Instead of editing the config file, you can also use the following ConVars to ch
 - `hvh_utilities_friendlyfire` if true, only utility damage will be dealt to teammates
 - `hvh_resetscore 0/1` if true, players will be able to reset their score with `!rs`
 - `hvh_resetdeath 0/1/2` 0 - off, 1 - admin only, 2 - everyone
-- `hvh_ragequit 0/1` if true, players will be able to rage quit with `!rq`
 - `hvh_restrict_meta_commands` - if true then nobody unless @css/root will access meta/css_plugins/sm commands
 
 # ChatPrefix Colors
 You can use all available colors from CounterStrikeSharp in the chat prefix.
-
-# Custom Votes
-If you have [CS2-CustomVotes](https://github.com/imi-tat0r/CS2-CustomVotes) installed, you can use the following custom votes:
-- `!rapidfire` You can set the style (`off`, `simple`, `full`) in the config via `CustomVoteSettings.RapidFireVote`
-- `!friendlyfire` You can enable this in the config via `CustomVoteSettings.FriendlyFireVote`
-- `!teleport` You can enable this in the config via `CustomVoteSettings.TeleportVote`
-> **Warning:** Teleport restriction is needed to prevent the server crash exploit. If you enable this vote, the server will be vulnerable to the crash exploit.
 
 # iksAdmin and flags
 If you have iksAdmin installed you have to specialize `word` defenition to a custom flag that you typed in config
@@ -109,7 +102,7 @@ For example:
 
 # Credits
 - [HvH.gg](https://hvh.gg) - plugin code base
-- [FusionHVH](https://fusionhvh.ru) - servers for testing
+- [EXHVH](https://exhvh.ru) - servers for testing
 - [Metamod:Source](https://www.sourcemm.net/) 
 - [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp)
 - [MagicBulletFix](https://github.com/CS2Plugins/MagicBulletFix)
