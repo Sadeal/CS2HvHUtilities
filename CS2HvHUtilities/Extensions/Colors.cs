@@ -74,4 +74,9 @@ class Colors
 
         return message;
     }
+
+    public static string RemoveFromMessage(string message)
+    {
+        return Regex.Replace(message, @"{\w+}", "");
+    }
 }

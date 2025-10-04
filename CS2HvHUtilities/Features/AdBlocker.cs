@@ -81,12 +81,12 @@ public class AdBlocker
             {
                 if (players[i].PlayerName.Length > 32)
                 {
-                    var newName = _plugin.Config.ChatPrefix + " TooLongName";
+                    var newName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
 
                     if (newName.Length > 32)
                         newName = "TooLongName";
 
-                    players[i].PlayerName = _plugin.Config.ChatPrefix + " TooLongName";
+                    players[i].PlayerName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
                 }
             }
         }
@@ -120,12 +120,12 @@ public class AdBlocker
             {
                 if (players[i].PlayerName.Length > 32)
                 {
-                    var newName = _plugin.Config.ChatPrefix + " TooLongName";
+                    var newName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
 
                     if (newName.Length > 32)
                         newName = "TooLongName";
 
-                    players[i].PlayerName = _plugin.Config.ChatPrefix + " TooLongName";
+                    players[i].PlayerName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
                 }
             }
         }
@@ -160,12 +160,12 @@ public class AdBlocker
             {
                 if (players[i].PlayerName.Length > 32)
                 {
-                    var newName = _plugin.Config.ChatPrefix + " TooLongName";
+                    var newName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
 
                     if (newName.Length > 32)
                         newName = "TooLongName";
 
-                    players[i].PlayerName = _plugin.Config.ChatPrefix + " TooLongName";
+                    players[i].PlayerName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
                 }
             }
         }
@@ -198,12 +198,12 @@ public class AdBlocker
         {
             if (player.PlayerName.Length > 32)
             {
-                var newName = _plugin.Config.ChatPrefix + " TooLongName";
+                var newName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
 
                 if (newName.Length > 32)
                     newName = "TooLongName";
 
-                player.PlayerName = _plugin.Config.ChatPrefix + " TooLongName";
+                player.PlayerName = Colors.RemoveFromMessage(_plugin.Config.ChatPrefix) + " TooLongName";
             }
         }
 
