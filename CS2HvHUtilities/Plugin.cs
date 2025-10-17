@@ -15,7 +15,7 @@ namespace cs2hvh_utilities;
 public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
 {
     public override string ModuleName => "CS2 HVH Utilities";
-    public override string ModuleVersion => "1.1.8";
+    public override string ModuleVersion => "1.1.9";
     public override string ModuleAuthor => "Sadeal";
     public override string ModuleDescription => "Usefull utilities for CS2 HvH servers";
     public Cs2HvhUtilitiesConfig Config { get; set; } = new();
@@ -107,11 +107,6 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         UseRapidFireFeature();
 
         Console.WriteLine("[Utils] Finished loading CS2HvHUtilities plugin");
-    }
-
-    public override void OnAllPluginsLoaded(bool hotReload)
-    {
-        base.OnAllPluginsLoaded(hotReload);
     }
 
     private void UseAdBlocker()
