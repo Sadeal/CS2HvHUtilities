@@ -1,6 +1,6 @@
 ![Copyright Sadeal](https://img.shields.io/badge/Developer-Sadeal-blue)
 
-# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.1.8)
+# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.1.9)
 ### If you use this plugin, you do NOT need [RapidFireFix](https://github.com/HvH-gg/RapidFireFix), [TeleportFix](https://github.com/HvH-gg/TeleportFix) and WeaponResctrict anymore.
 
 This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** as well as optional restrictions or allowence for **weapons**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
@@ -63,7 +63,7 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
        "ResetDeathAlreadyPhrase": "Your deaths are already 0.", // message for !rd but already 0
        "RapidFirePhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}double tap{Grey}!", // message for RapidFireFix method 1
        "TeleportPhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}Teleport{Grey}!", // message for TeleportFix 
-       "WeaponRestrictPhrase": "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!", // Message for WeaponResctrict
+       "WeaponRestrictPhrase": "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!" // Message for WeaponResctrict
    },
 "ConfigVersion": 10 // not to change
 }
