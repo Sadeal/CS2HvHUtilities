@@ -110,14 +110,14 @@ public class WeaponRestrict
                 "weapon_knife_survival",
                 "weapon_knife_talon",
                 "weapon_knife_ursus",
-                "weapon_knife_kukri"
+                "weapon_knife_kukri",
+                "weapon_knife_push"
             ];
             var weapons = hvh_allow_only_weapons.Value.Split(',');
             foreach (var weapon in weapons)
             {
                 allowedWeapons.Add(weapon.Trim());
             }
-
             if (!allowedWeapons.Contains(vdata.Name))
             {
                 if (hook.GetParam<AcquireMethod>(2) != AcquireMethod.PickUp)
