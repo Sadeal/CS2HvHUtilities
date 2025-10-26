@@ -118,7 +118,7 @@ public class WeaponRestrict
             {
                 allowedWeapons.Add(weapon.Trim());
             }
-            if (!allowedWeapons.Contains(vdata.Name))
+            if (!allowedWeapons.Contains(vdata.Name) && !vdata.Name.Contains("knife"))
             {
                 if (hook.GetParam<AcquireMethod>(2) != AcquireMethod.PickUp)
                 {
