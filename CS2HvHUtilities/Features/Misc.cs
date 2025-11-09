@@ -97,8 +97,9 @@ public class Misc
             player.PrintToChat(" ");
             if (_plugin.Config.AllowedAwpCount > -1 || _plugin.Config.AllowedScoutCount > -1 || _plugin.Config.AllowedAutoSniperCount > -1)
             {
-                message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponResctrictionPerTeam, fieldValues);
+                message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponResctriction, fieldValues);
                 player.PrintToChat($"{message}");
+                message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponResctrictionPerTeam, fieldValues);
                 if (_plugin.Config.AllowedAwpCount != -1)
                     player.PrintToChat(
                         $"AWP: {(_plugin.Config.AllowedAwpCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedAwpCount} {message}");

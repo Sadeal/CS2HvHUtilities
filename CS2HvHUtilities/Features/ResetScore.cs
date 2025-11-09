@@ -78,7 +78,7 @@ public class ResetScore
                 { "PlayerName", player.PlayerName }
             };
 
-            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ResetDeathPhrase, fieldValues);
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ResetScorePhrase, fieldValues);
             Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
         }
     }
