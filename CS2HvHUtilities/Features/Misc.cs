@@ -50,32 +50,45 @@ public class Misc
 
         if (_plugin.Config.AllowSettingsPrint)
         {
-            player.PrintToChat("Server rules:");
+            var fieldValues = new Dictionary<string, object> {};
+
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ServerRules, fieldValues);
+            player.PrintToChat($"{message}");
+
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.GrenadesFF, fieldValues);
             player.PrintToChat(
-                $"Grenades only friendly fire: {(_plugin.Config.UtilitiesFriendlyFire ? $"{ChatColors.Lime}enabled" : $"{ChatColors.Orange}disabled")}");
+                $"{message} {(_plugin.Config.UtilitiesFriendlyFire ? $"{ChatColors.Lime}ON" : $"{ChatColors.Orange}OFF")}");
+
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.TeleportFP, fieldValues);
             player.PrintToChat(
-                $"Teleport/FakePitch: {(!_plugin.Config.RestrictTeleport ? $"{ChatColors.Lime}enabled" : $"{ChatColors.Orange}disabled")}");
+                $"{message} {(!_plugin.Config.RestrictTeleport ? $"{ChatColors.Lime}ON" : $"{ChatColors.Orange}OFF")}");
+
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.RapidDT, fieldValues);
             player.PrintToChat(
-                $"RapidFire/DoubleTap: {(_plugin.Config.RapidFireFixMethod != FixMethod.Ignore ? $"{ChatColors.Lime}enabled" : $"{ChatColors.Orange}disabled")}");
+                $"{message} {(_plugin.Config.RapidFireFixMethod != FixMethod.Ignore ? $"{ChatColors.Lime}ON" : $"{ChatColors.Orange}OFF")}");
 
             switch (_plugin.Config.RapidFireFixMethod)
             {
                 case FixMethod.Allow:
                     break;
                 case FixMethod.Ignore:
-                    player.PrintToChat($"Method: {ChatColors.Orange}blocking shot registration");
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.MethodIgnore, fieldValues);
+                    player.PrintToChat($"{message}");
                     break;
                 case FixMethod.Reflect:
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.Method, fieldValues);
                     player.PrintToChat(
-                        $"Method: {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey}");
+                        $"{message} {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey}");
                     break;
                 case FixMethod.ReflectSafe:
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.Method, fieldValues);
                     player.PrintToChat(
-                        $"Method: {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey} and prevent death (1 hp)");
+                        $"{message} {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey} and prevent death (1 hp)");
                     break;
                 case FixMethod.RapidFire:
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.MethodRapid, fieldValues);
                     player.PrintToChat(
-                        $"Method: {ChatColors.Orange}enabling server-side RapidFire");
+                        $"{message}");
                     break;
                 default:
                     break;
@@ -84,21 +97,24 @@ public class Misc
             player.PrintToChat(" ");
             if (_plugin.Config.AllowedAwpCount > -1 || _plugin.Config.AllowedScoutCount > -1 || _plugin.Config.AllowedAutoSniperCount > -1)
             {
-                player.PrintToChat("Weapon restriction:");
+                message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponResctrictionPerTeam, fieldValues);
+                player.PrintToChat($"{message}");
                 if (_plugin.Config.AllowedAwpCount != -1)
                     player.PrintToChat(
-                        $"AWP: {(_plugin.Config.AllowedAwpCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedAwpCount} per team");
+                        $"AWP: {(_plugin.Config.AllowedAwpCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedAwpCount} {message}");
                 if (_plugin.Config.AllowedScoutCount != -1)
                     player.PrintToChat(
-                        $"Scout: {(_plugin.Config.AllowedScoutCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedScoutCount} per team");
+                        $"Scout: {(_plugin.Config.AllowedScoutCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedScoutCount} {message}");
                 if (_plugin.Config.AllowedAutoSniperCount != -1)
                     player.PrintToChat(
-                        $"Auto: {(_plugin.Config.AllowedAutoSniperCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedAutoSniperCount} per team");
+                        $"Auto: {(_plugin.Config.AllowedAutoSniperCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedAutoSniperCount} {message}");
             }
 
             player.PrintToChat(" ");
+
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.HelpMessage, fieldValues);
             player.PrintToChat(
-                $"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} Type {ChatColors.Orange}!rules{ChatColors.Grey} to see these settings again");
+                $"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
         }
 
         if (_plugin.Config.AllowAdPrint)

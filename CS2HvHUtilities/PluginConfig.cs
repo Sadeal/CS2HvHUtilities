@@ -15,7 +15,16 @@ public class Cs2CustomPhrasesSettings
     [JsonPropertyName("RapidFirePhrase")] public string RapidFirePhrase { get; set; } = "Player {Orange}{PlayerName}{Grey} tried using {Orange}double tap{Grey}!";
     [JsonPropertyName("TeleportPhrase")] public string TeleportPhrase { get; set; } = "Player {Orange}{PlayerName}{Grey} tried using {Orange}Teleport{Grey}!";
     [JsonPropertyName("WeaponRestrictPhrase")] public string WeaponRestrictPhrase { get; set; } = "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!";
-    [JsonPropertyName("RageQuitPhrase")] public string RageQuitPhrase { get; set; } = "Player {Orange}{PlayerName}{Grey} has rage quit!";
+    [JsonPropertyName("ServerRules")] public string ServerRules { get; set; } = "Server rules:";
+    [JsonPropertyName("GrenadesFF")] public string GrenadesFF { get; set; } = "Grenades only friendly fire:";
+    [JsonPropertyName("TeleportFP")] public string TeleportFP { get; set; } = "Teleport/FakePitch:";
+    [JsonPropertyName("RapidDT")] public string RapidDT { get; set; } = "RapidFire/DoubleTap:";
+    [JsonPropertyName("Method")] public string Method { get; set; } = "Method:";
+    [JsonPropertyName("MethodIgnore")] public string MethodIgnore { get; set; } = "Method: {Orange}blocking shot registration";
+    [JsonPropertyName("MethodRapid")] public string MethodRapid { get; set; } = "Method: {Orange}enabling server-side RapidFire";
+    [JsonPropertyName("WeaponResctriction")] public string WeaponResctriction { get; set; } = "Weapon restriction:";
+    [JsonPropertyName("WeaponResctrictionPerTeam")] public string WeaponResctrictionPerTeam { get; set; } = "per team.";
+    [JsonPropertyName("HelpMessage")] public string HelpMessage { get; set; } = "Type {Orange}!rules{Grey} to see these settings again";
 }
 
 public partial class Cs2HvhUtilitiesConfig : BasePluginConfig

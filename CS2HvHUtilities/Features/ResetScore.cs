@@ -50,7 +50,10 @@ public class ResetScore
         if (player is { Score: 0, MVPs: 0 } &&
             stats is { Kills: 0, HeadShotKills: 0, Deaths: 0, Assists: 0, UtilityDamage: 0, Damage: 0, Objective: 0 })
         {
-            player.PrintToChat($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} Your stats are already 0.");
+            var fieldValues = new Dictionary<string, object> { };
+
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ResetScoreAlreadyPhrase, fieldValues);
+            player.PrintToChat($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
             return;
         }
 
@@ -69,7 +72,15 @@ public class ResetScore
         Utilities.SetStateChanged(player, "CCSPlayerController", "m_iScore");
 
         if (showResetScorePrint)
-            Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} Player {ChatColors.Orange}{player.PlayerName}{ChatColors.Grey} has reset their stats!");
+        {
+            var fieldValues = new Dictionary<string, object>
+            {
+                { "PlayerName", player.PlayerName }
+            };
+
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ResetDeathPhrase, fieldValues);
+            Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
+        }
     }
 
     [ConsoleCommand("css_rd", "Reset death")]
@@ -91,7 +102,11 @@ public class ResetScore
 
         if (stats.Deaths == 0)
         {
-            player.PrintToChat($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} Your deaths are already 0.");
+            var fieldValues = new Dictionary<string, object> {};
+
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ResetDeathAlreadyPhrase, fieldValues);
+
+            player.PrintToChat($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
             return;
         }
 
@@ -100,6 +115,14 @@ public class ResetScore
         Utilities.SetStateChanged(player, "CCSPlayerController", "m_pActionTrackingServices");
 
         if (showResetDeathPrint)
-            Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} Player {ChatColors.Orange}{player.PlayerName}{ChatColors.Grey} has reset their deaths!");
+        {
+            var fieldValues = new Dictionary<string, object>
+            {
+                { "PlayerName", player.PlayerName }
+            };
+
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ResetDeathPhrase, fieldValues);
+            Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
+        }
     }
 }

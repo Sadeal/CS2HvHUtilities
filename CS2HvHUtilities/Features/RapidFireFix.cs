@@ -7,6 +7,7 @@ using CounterStrikeSharp.API.Modules.Utils;
 using CSSharpUtils.Extensions;
 using cs2hvh_utilities.Enums;
 using cs2hvh_utilities.Extensions;
+using CounterStrikeSharp.API.Modules.Entities;
 
 namespace cs2hvh_utilities.Features;
 
@@ -110,7 +111,14 @@ public class RapidFire
                 lastWarningTime + 3 > Server.CurrentTime)
                 return HookResult.Continue;
 
-            Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} Player {ChatColors.Orange}{eventWeaponFire.Userid.PlayerName}{ChatColors.Grey} tried using {ChatColors.Orange}double tap{ChatColors.Grey}!");
+            var fieldValues = new Dictionary<string, object>
+            {
+                { "PlayerName", eventWeaponFire.Userid.PlayerName }
+            };
+
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.RapidFirePhrase, fieldValues);
+
+            Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
             _rapidFireBlockWarnings[index] = Server.CurrentTime;
         }
 
