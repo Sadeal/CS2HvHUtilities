@@ -14,6 +14,7 @@
   "RestrictGhost": true,
   "AllowAdPrint": true,
   "AdvertiseBlockerName": true,
+  "AdvertiseNameChangeTo": "[Player1],[Player2],[Player3]",
   "AdvertiseBlockerChat": true,
   "AllowSettingsPrint": true,
   "AllowResetScore": true,
@@ -23,26 +24,6 @@
   "ShowResetDeathPrint": true,
   "RestrictMetaCommands": true,
   "ChatPrefix": "[{Blue}Utils{Default}]",
-  "CustomPhrasesSettings": {
-    "AdvertiseBlockerMessage": "Advertisement is prohibited!",
-    "AdvertiseNameChangeTo": "[Player1],[Player2],[Player3]",
-    "ResetScorePhrase": "Player {Orange}{PlayerName}{Grey} has reset their stats!",
-    "ResetScoreAlreadyPhrase": "Your stats are already 0.",
-    "ResetDeathPhrase": "Player {Orange}{PlayerName}{Grey} has reset their deaths!",
-    "ResetDeathAlreadyPhrase": "Your deaths are already 0.",
-    "RapidFirePhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}double tap{Grey}!",
-    "TeleportPhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}Teleport{Grey}!",
-    "WeaponRestrictPhrase": "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!",
-    "ServerRules": "Server rules: ",
-    "GrenadesFF": "Grenades only friendly fire: ",
-    "TeleportFP": "Teleport/FakePitch: ",
-    "RapidDT": "RapidFire/DoubleTap: ",
-    "Method": "Method:",
-    "MethodIgnore": "Method: {Orange}blocking shot registration",
-    "MethodRapid": "Method: {Orange}enabling server-side RapidFire",
-    "WeaponResctriction": "Weapon restriction: ",
-    "WeaponResctrictionPerTeam": "per team.",
-    "HelpMessage": "Type {Orange}!rules{Grey} to see these settings again"
-  },
-  "ConfigVersion": 11
+  "Language": "en",
+  "ConfigVersion": 12
 }
