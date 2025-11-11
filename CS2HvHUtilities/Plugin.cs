@@ -15,7 +15,7 @@ namespace cs2hvh_utilities;
 public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
 {
     public override string ModuleName => "CS2 HVH Utilities";
-    public override string ModuleVersion => "1.2.0";
+    public override string ModuleVersion => "1.3.0";
     public override string ModuleAuthor => "Sadeal";
     public override string ModuleDescription => "Usefull utilities for CS2 HvH servers";
     public Cs2HvhUtilitiesConfig Config { get; set; } = new();
