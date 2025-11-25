@@ -6,6 +6,7 @@ using CounterStrikeSharp.API.Modules.Utils;
 using CSSharpUtils.Extensions;
 using cs2hvh_utilities.Extensions;
 using CounterStrikeSharp.API.Modules.Commands;
+using CounterStrikeSharp.API.Modules.Admin;
 
 namespace cs2hvh_utilities.Features;
 
@@ -77,6 +78,11 @@ public class TeleportFix
 
         if (player?.IsValid == true && player.PlayerPawn?.IsValid == true)
         {
+            if(AdminManager.PlayerHasPermissions(player, "@css/general"))
+            {
+                return HookResult.Continue;
+            }
+
             var index = player.Index;
             CCSGameRules gamerules = Utilities.FindAllEntitiesByDesignerName<CCSGameRulesProxy>("cs_gamerules").First().GameRules!;
             if (!gamerules.FreezePeriod)

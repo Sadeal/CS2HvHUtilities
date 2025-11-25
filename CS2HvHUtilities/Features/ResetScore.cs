@@ -33,6 +33,10 @@ public class ResetScore
             : "@css/general";
     }
 
+    [ConsoleCommand("rs", "Reset score")]
+    [ConsoleCommand("resetscore", "Reset score")]
+    [ConsoleCommand("куыуеысщку", "Reset score")]
+    [ConsoleCommand("кы", "Reset score")]
     [ConsoleCommand("css_rs", "Reset score")]
     [ConsoleCommand("css_resetscore", "Reset score")]
     [ConsoleCommand("css_куыуеысщку", "Reset score")]
@@ -83,10 +87,14 @@ public class ResetScore
         }
     }
 
+    [ConsoleCommand("rd", "Reset death")]
+    [ConsoleCommand("resetdeath", "Reset death")]
+    [ConsoleCommand("куыуевуфер", "Reset death")]
+    [ConsoleCommand("кв", "Reset death")]
     [ConsoleCommand("css_rd", "Reset death")]
     [ConsoleCommand("css_resetdeath", "Reset death")]
-    [ConsoleCommand("css_кв", "Reset death")]
     [ConsoleCommand("css_куыуевуфер", "Reset death")]
+    [ConsoleCommand("css_кв", "Reset death")]
     public void OnResetDeath(CCSPlayerController? player, CommandInfo inf)
     {
         if (player == null || !player.IsPlayer())

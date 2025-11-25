@@ -65,60 +65,50 @@ public class WeaponRestrict
 
         if (hvh_allow_only_weapons.Value.Length > 0)
         {
-            List<string> allowedWeapons = [
-                "weapon_glock",
-                "weapon_hkp2000",
-                "weapon_usp_silencer",
-                "weapon_elite",
-                "weapon_p250",
-                "weapon_tec9",
-                "weapon_cz75a",
-                "weapon_fiveseven",
-                "weapon_deagle",
-                "weapon_revolver",
-                "weapon_taser",
-                "weapon_molotov",
-                "weapon_incgrenade",
-                "weapon_decoy",
-                "weapon_flashbang",
-                "weapon_hegrenade",
-                "weapon_smokegrenade",
-                "item_cutters",
-                "item_defuser",
-                "item_assaultsuit",
-                "item_kevlar",
-                "weapon_c4",
-                "weapon_healthshot",
-                "weapon_knife",
-                "weapon_knife_t",
-                "weapon_knife_bayonet",
-                "weapon_knife_m9_bayonet",
-                "weapon_knife_bowie",
-                "weapon_knife_butterfly",
-                "weapon_knife_classic",
-                "weapon_knife_falchion",
-                "weapon_knife_flip",
-                "weapon_knife_gut",
-                "weapon_knife_huntsman",
-                "weapon_knife_karambit",
-                "weapon_knife_navaja",
-                "weapon_knife_nomad",
-                "weapon_knife_paracord",
-                "weapon_knife_shadowdaggers",
-                "weapon_knife_skeleton",
-                "weapon_knife_stiletto",
-                "weapon_knife_survival",
-                "weapon_knife_talon",
-                "weapon_knife_ursus",
-                "weapon_knife_kukri",
-                "weapon_knife_push"
-            ];
+            List<string> deniedWeapons = new List<string>
+            {
+                "weapon_mp9",
+                "weapon_mac10",
+                "weapon_bizon",
+                "weapon_mp7",
+                "weapon_ump45",
+                "weapon_p90",
+                "weapon_mp5sd",
+                "weapon_famas",
+                "weapon_galilar",
+                "weapon_m4a4",
+                "weapon_m4a1_silencer",
+                "weapon_ak47",
+                "weapon_aug",
+                "weapon_sg553",
+                "weapon_ssg08",
+                "weapon_awp",
+                "weapon_scar20",
+                "weapon_g3sg1",
+                "weapon_nova",
+                "weapon_xm1014",
+                "weapon_mag7",
+                "weapon_sawedoff",
+                "weapon_m249",
+                "weapon_negev"
+            };
+
             var weapons = hvh_allow_only_weapons.Value.Split(',');
+            List<string> resultWeapons = new List<string>();
+
             foreach (var weapon in weapons)
             {
-                allowedWeapons.Add(weapon.Trim());
+                var wepName = weapon.Trim();
+                if (!wepName.StartsWith("weapon_"))
+                {
+                    wepName = "weapon_" + wepName;
+                }
+                if (!deniedWeapons.Contains(wepName, StringComparer.OrdinalIgnoreCase))
+                {
+                    resultWeapons.Add(wepName);
+                }
             }
-            if (!allowedWeapons.Contains(vdata.Name) && !vdata.Name.Contains("knife"))
+            if (resultWeapons.Contains(vdata.Name))
             {
                 if (hook.GetParam<AcquireMethod>(2) != AcquireMethod.PickUp)
                 {

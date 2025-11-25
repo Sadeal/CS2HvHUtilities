@@ -44,5 +44,5 @@
     "WeaponResctrictionPerTeam": "per team.",
     "HelpMessage": "Type {Orange}!rules{Grey} to see these settings again"
   },
-  "ConfigVersion": 11
+  "ConfigVersion": 13
 }
