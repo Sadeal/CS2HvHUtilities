@@ -120,7 +120,7 @@ public class WeaponRestrict
                         { "RestrictAmount", 0 }
                     };
 
-                    var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponRestrictPhrase, fieldValues);
+                    var message = _plugin.FormatString(Language.GetMessage("WeaponRestrictPhrase"), fieldValues);
 
                     Server.NextFrame(() => client.PrintToChat($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}"));
                 }
@@ -159,7 +159,7 @@ public class WeaponRestrict
                 { "RestrictAmount", limit }
             };
 
-            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponRestrictPhrase, fieldValues);
+            var message = _plugin.FormatString(Language.GetMessage("WeaponRestrictPhrase"), fieldValues);
 
             Server.NextFrame(() => client.PrintToChat($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}"));
         }

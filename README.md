@@ -1,6 +1,6 @@
 ![Copyright Sadeal](https://img.shields.io/badge/Developer-Sadeal-blue)
 
-# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.1.9)
+# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.3.0)
 ### If you use this plugin, you do NOT need [RapidFireFix](https://github.com/HvH-gg/RapidFireFix), [TeleportFix](https://github.com/HvH-gg/TeleportFix) and WeaponResctrict anymore.
 
 This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** as well as optional restrictions or allowence for **weapons**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
@@ -54,18 +54,8 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
    "ShowResetDeathPrint": false, // will print message to all that someone !rd
    "RestrictMetaCommands": true, // restrict anyone except @css/root to type "meta", "css_plugins" etc to game console and get result
    "ChatPrefix": "[{Red}Utils{Default}]", // chat prefix for !rs, resticts and etc for this plugin
-     "CustomPhrasesSettings": {
-       "AdvertiseBlockerMessage": "Advertisement is prohibited!", // message to user that trying to echo AD
-       "AdvertiseNameChangeTo": "[Player1],[Player2],[Player3]", // will rename to one of this names if user have AD
-       "ResetScorePhrase": "Player {Orange}{PlayerName}{Grey} has reset their stats!", // message for !rs
-       "ResetScoreAlreadyPhrase": "Your stats are already 0.", // message for !rs but already 0
-       "ResetDeathPhrase": "Player {Orange}{PlayerName}{Grey} has reset their deaths!", // message for !rd
-       "ResetDeathAlreadyPhrase": "Your deaths are already 0.", // message for !rd but already 0
-       "RapidFirePhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}double tap{Grey}!", // message for RapidFireFix method 1
-       "TeleportPhrase": "Player {Orange}{PlayerName}{Grey} tried using {Orange}Teleport{Grey}!", // message for TeleportFix 
-       "WeaponRestrictPhrase": "{Orange}{WeaponName}{Grey} is restricted to {Orange}{RestrictAmount}{Grey} per team!" // Message for WeaponResctrict
-   },
-"ConfigVersion": 10 // not to change
+   "Language": "en", // // chat print language. Available: English (en), Russian (ru), Chinese (cn), Polska (pl), Korean (kr), Japanese (jp), German (de)
+   "ConfigVersion": 11 // not to change
 }
 ```
 

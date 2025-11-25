@@ -23,9 +23,9 @@ public class AdBlocker
         _plugin = plugin;
         _plugin.RegisterFakeConVars(this);
         useBlockerName = _plugin.Config.AdvertiseBlockerName;
-        blockedNameChangeTo = _plugin.Config.CustomPhrasesSettings.AdvertiseNameChangeTo;
+        blockedNameChangeTo = _plugin.Config.AdvertiseNameChangeTo;
         useBlockerChat = _plugin.Config.AdvertiseBlockerChat;
-        messageToChat = _plugin.Config.CustomPhrasesSettings.AdvertiseBlockerMessage;
+        messageToChat = Language.GetMessage("AdvertiseBlockerMessage");
         return;
     }
 
