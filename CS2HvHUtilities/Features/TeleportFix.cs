@@ -61,7 +61,7 @@ public class TeleportFix
                 { "PlayerName", player.PlayerName }
             };
 
-            var message = _plugin.FormatString(Language.GetMessage("TeleportPhrase"), fieldValues);
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.TeleportPhrase, fieldValues);
 
             Server.PrintToChatAll($"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
 

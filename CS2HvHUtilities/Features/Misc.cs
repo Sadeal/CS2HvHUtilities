@@ -52,18 +52,18 @@ public class Misc
         {
             var fieldValues = new Dictionary<string, object> {};
 
-            var message = _plugin.FormatString(Language.GetMessage("ServerRules"), fieldValues);
+            var message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.ServerRules, fieldValues);
             player.PrintToChat($"{message}");
 
-            message = _plugin.FormatString(Language.GetMessage("GrenadesFF"), fieldValues);
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.GrenadesFF, fieldValues);
             player.PrintToChat(
                 $"{message} {(_plugin.Config.UtilitiesFriendlyFire ? $"{ChatColors.Lime}ON" : $"{ChatColors.Orange}OFF")}");
 
-            message = _plugin.FormatString(Language.GetMessage("TeleportFP"), fieldValues);
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.TeleportFP, fieldValues);
             player.PrintToChat(
                 $"{message} {(!_plugin.Config.RestrictTeleport ? $"{ChatColors.Lime}ON" : $"{ChatColors.Orange}OFF")}");
 
-            message = _plugin.FormatString(Language.GetMessage("RapidDT"), fieldValues);
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.RapidDT, fieldValues);
             player.PrintToChat(
                 $"{message} {(_plugin.Config.RapidFireFixMethod != FixMethod.Ignore ? $"{ChatColors.Lime}ON" : $"{ChatColors.Orange}OFF")}");
 
@@ -72,21 +72,21 @@ public class Misc
                 case FixMethod.Allow:
                     break;
                 case FixMethod.Ignore:
-                    message = _plugin.FormatString(Language.GetMessage("MethodIgnore"), fieldValues);
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.MethodIgnore, fieldValues);
                     player.PrintToChat($"{message}");
                     break;
                 case FixMethod.Reflect:
-                    message = _plugin.FormatString(Language.GetMessage("Method"), fieldValues);
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.Method, fieldValues);
                     player.PrintToChat(
                         $"{message} {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey}");
                     break;
                 case FixMethod.ReflectSafe:
-                    message = _plugin.FormatString(Language.GetMessage("Method"), fieldValues);
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.Method, fieldValues);
                     player.PrintToChat(
                         $"{message} {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey} and prevent death (1 hp)");
                     break;
                 case FixMethod.RapidFire:
-                    message = _plugin.FormatString(Language.GetMessage("MethodRapid"), fieldValues);
+                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.MethodRapid, fieldValues);
                     player.PrintToChat(
                         $"{message}");
                     break;
@@ -97,9 +97,9 @@ public class Misc
             player.PrintToChat(" ");
             if (_plugin.Config.AllowedAwpCount > -1 || _plugin.Config.AllowedScoutCount > -1 || _plugin.Config.AllowedAutoSniperCount > -1)
             {
-                message = _plugin.FormatString(Language.GetMessage("WeaponResctriction"), fieldValues);
+                message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponResctriction, fieldValues);
                 player.PrintToChat($"{message}");
-                message = _plugin.FormatString(Language.GetMessage("WeaponResctrictionPerTeam"), fieldValues);
+                message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.WeaponResctrictionPerTeam, fieldValues);
                 if (_plugin.Config.AllowedAwpCount != -1)
                     player.PrintToChat(
                         $"AWP: {(_plugin.Config.AllowedAwpCount == 0 ? ChatColors.Red : ChatColors.Orange)}{_plugin.Config.AllowedAwpCount} {message}");
@@ -113,7 +113,7 @@ public class Misc
 
             player.PrintToChat(" ");
 
-            message = _plugin.FormatString(Language.GetMessage("HelpMessage"), fieldValues);
+            message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.HelpMessage, fieldValues);
             player.PrintToChat(
                 $"{Colors.FormatMessage(_plugin.Config.ChatPrefix)} {message}");
         }
