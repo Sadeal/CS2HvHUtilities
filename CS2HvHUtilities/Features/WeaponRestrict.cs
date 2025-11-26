@@ -76,6 +76,7 @@ public class WeaponRestrict
                 "weapon_mp5sd",
                 "weapon_famas",
                 "weapon_galilar",
+                "weapon_m4a1",
                 "weapon_m4a4",
                 "weapon_m4a1_silencer",
                 "weapon_ak47",
@@ -103,12 +104,9 @@ public class WeaponRestrict
                 {
                     wepName = "weapon_" + wepName;
                 }
-                if (!deniedWeapons.Contains(wepName, StringComparer.OrdinalIgnoreCase))
-                {
-                    resultWeapons.Add(wepName);
-                }
+                deniedWeapons.Remove(wepName);
             }
-            if (resultWeapons.Contains(vdata.Name))
+            if (deniedWeapons.Contains(vdata.Name))
             {
                 if (hook.GetParam<AcquireMethod>(2) != AcquireMethod.PickUp)
                 {
