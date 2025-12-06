@@ -153,7 +153,7 @@ public class WeaponRestrict
 
             var fieldValues = new Dictionary<string, object>
             {
-                { "WeaponName", vdata.Name },
+                { "WeaponName", vdata.Name.Replace("weapon_", "") },
                 { "RestrictAmount", limit }
             };
 
