@@ -93,6 +93,7 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         services.AddSingleton<MoneyFix>();
         services.AddSingleton<AdBlocker>();
         services.AddSingleton<RapidFireFeature>();
+        services.AddSingleton<AwpFix>();
 
         _serviceProvider = services.BuildServiceProvider();
 
@@ -105,6 +106,7 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         UseTeleport();
         UseMetaCommandsBlocker();
         UseRapidFireFeature();
+        AwpFixFeature();
 
         Console.WriteLine("[Utils] Finished loading CS2HvHUtilities plugin");
     }
@@ -183,6 +185,7 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         
         Console.WriteLine("[Utils] Finished registering reset score command");
     }
+
     private void UseRapidFireRestrict()
     {
         Console.WriteLine("[Utils] Register rapid fire listeners");
@@ -194,6 +197,7 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         
         Console.WriteLine("[Utils] Finished registering rapid fire listeners");
     }
+
     private void UseRapidFireFeature()
     {
         Console.WriteLine("[Utils] Register rapid fire feature listeners");
@@ -204,6 +208,17 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
 
         Console.WriteLine("[Utils] Finished registering rapid fire feature listeners");
     }
+
+    private void AwpFixFeature()
+    {
+        Console.WriteLine("[Utils] Register awp fix feature listeners");
+
+        var awpFix = _serviceProvider!.GetRequiredService<AwpFix>();
+        RegisterListener<Listeners.OnEntityCreated>(awpFix.OnEntityCreated);
+
+        Console.WriteLine("[Utils] Finished registering awp fix feature listeners");
+    }
+
     private void UseWeaponRestrict()
     {
         Console.WriteLine("[Utils] Register weapon restriction listeners");

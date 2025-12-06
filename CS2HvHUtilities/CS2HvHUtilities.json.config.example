@@ -9,6 +9,7 @@
   "AllowAllWeaponsOnWarmup": true,
   "AllowWeaponsForFlag": "@css/restrict",
   "AllowedOnlyWeapons": "weapon_scar20,weapon_g3sg1",
+  "AwpBullets": 10,
   "RestrictTeleport": true,
   "TeleportPrintMessage": true,
   "RestrictGhost": true,
