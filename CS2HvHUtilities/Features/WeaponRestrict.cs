@@ -82,6 +82,7 @@ public class WeaponRestrict
                 "weapon_ak47",
                 "weapon_aug",
                 "weapon_sg553",
+                "weapon_sg552",
                 "weapon_ssg08",
                 "weapon_awp",
                 "weapon_scar20",
