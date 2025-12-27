@@ -1,6 +1,6 @@
 ![Copyright Sadeal](https://img.shields.io/badge/Developer-Sadeal-blue)
 
-# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.4.2)
+# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.4.5)
 ### If you use this plugin, you do NOT need [RapidFireFix](https://github.com/HvH-gg/RapidFireFix), [TeleportFix](https://github.com/HvH-gg/TeleportFix) and WeaponResctrict anymore.
 
 This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** as well as optional restrictions or allowence for **weapons**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
@@ -30,7 +30,7 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
 # Config
 ```json
 {
-   "RapidFireFixMethod": 1, // 0 - allow doubletap, 1 - restrict doubletap, 2 - reflect doubletap (* RapidFireReflectScale) and allow to kill, 3 - reflect doubletap but cant kill with second bullet, 4 - rapidfire feature
+   "RapidFireFixMethod": 1, // 0 - allow doubletap, 1 - restrict doubletap, 2-4 - rapidfire feature
    "RapidFirePrintMessage": false, // true - will print message to all that someone using doubletap, false - not
    "RapidFireReflectScale": 1, // 0-1 - scale for second bullet of doubletap (0 - 0%, 1 - 100%)
    "FixMoneyOnJoin": true, // if cvar mp_afterroundmoney is set to 0 and you have pistol rounds - this will fix that someone joining server and have 800 instead of 16000
