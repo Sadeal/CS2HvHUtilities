@@ -30,7 +30,6 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         
         RapidFire.hvh_restrict_rapidfire.Value = (int) Config.RapidFireFixMethod;
         RapidFire.hvh_rapidfire_print_message.Value = Config.RapidFirePrintMessage;
-        RapidFire.hvh_rapidfire_reflect_scale.Value = Config.RapidFireReflectScale;
         TeleportFix.hvh_restrict_teleport.Value = Config.RestrictTeleport;
         TeleportFix.hvh_teleport_print_message.Value = Config.TeleportPrintMessage;
         WeaponRestrict.hvh_restrict_awp.Value = Config.AllowedAwpCount;
@@ -192,8 +191,6 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         
         var rapidFire = _serviceProvider!.GetRequiredService<RapidFire>();
         RegisterEventHandler<EventBulletImpact>(rapidFire.OnBulletImpact, HookMode.Pre);
-        RegisterEventHandler<EventWeaponFire>(rapidFire.OnWeaponFire);
-        VirtualFunctions.CBaseEntity_TakeDamageOldFunc.Hook(rapidFire.OnTakeDamage, HookMode.Pre);
         
         Console.WriteLine("[Utils] Finished registering rapid fire listeners");
     }
@@ -263,8 +260,6 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
             return;
         
         var rapidFire = _serviceProvider.GetRequiredService<RapidFire>();
-        
-        VirtualFunctions.CBaseEntity_TakeDamageOldFunc.Unhook(rapidFire.OnTakeDamage, HookMode.Pre);
         
         var weaponRestrict = _serviceProvider.GetRequiredService<WeaponRestrict>();
         VirtualFunctions.CCSPlayer_WeaponServices_CanUseFunc.Unhook(weaponRestrict.OnWeaponCanAcquire, HookMode.Pre);

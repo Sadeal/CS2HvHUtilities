@@ -30,7 +30,7 @@ public class RapidFireFeature
 
     public void OnTick()
     {
-        if (RapidFire.hvh_restrict_rapidfire.Value != (int)FixMethod.RapidFire)
+        if (RapidFire.hvh_restrict_rapidfire.Value == (int)FixMethod.Allow || RapidFire.hvh_restrict_rapidfire.Value == (int)FixMethod.Ignore)
             return;
 
         var players = Utilities.GetPlayers();
