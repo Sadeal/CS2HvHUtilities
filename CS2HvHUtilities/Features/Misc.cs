@@ -65,34 +65,14 @@ public class Misc
 
             message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.RapidDT, fieldValues);
             player.PrintToChat(
-                $"{message} {(_plugin.Config.RapidFireFixMethod != FixMethod.Ignore ? $"{ChatColors.Lime}ON" : $"{ChatColors.Orange}OFF")}");
-
-            switch (_plugin.Config.RapidFireFixMethod)
-            {
-                case FixMethod.Allow:
-                    break;
-                case FixMethod.Ignore:
-                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.MethodIgnore, fieldValues);
-                    player.PrintToChat($"{message}");
-                    break;
-                case FixMethod.Reflect:
-                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.Method, fieldValues);
-                    player.PrintToChat(
-                        $"{message} {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey}");
-                    break;
-                case FixMethod.ReflectSafe:
-                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.Method, fieldValues);
-                    player.PrintToChat(
-                        $"{message} {ChatColors.Orange}reflect damage{ChatColors.Grey} at {ChatColors.Orange}{_plugin.Config.RapidFireReflectScale}x{ChatColors.Grey} and prevent death (1 hp)");
-                    break;
-                case FixMethod.RapidFire:
-                    message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.MethodRapid, fieldValues);
-                    player.PrintToChat(
-                        $"{message}");
-                    break;
-                default:
-                    break;
-            }
+                $"{message} {(_plugin.Config.RapidFireFixMethod != FixMethod.Ignore 
+                    ? $"{ChatColors.Lime}ON" 
+                    : (_plugin.Config.RapidFireFixMethod == FixMethod.Allow 
+                        ? $"{ChatColors.Orange}OFF" 
+                        : $"{ChatColors.Red}Rapid"
+                    )
+                )}"
+            );
 
             player.PrintToChat(" ");
             if (_plugin.Config.AllowedAwpCount > -1 || _plugin.Config.AllowedScoutCount > -1 || _plugin.Config.AllowedAutoSniperCount > -1)
