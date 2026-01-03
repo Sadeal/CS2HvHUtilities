@@ -1,6 +1,6 @@
 ![Copyright Sadeal](https://img.shields.io/badge/Developer-Sadeal-blue)
 
-# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.4.5)
+# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.5.0)
 ### If you use this plugin, you do NOT need [RapidFireFix](https://github.com/HvH-gg/RapidFireFix), [TeleportFix](https://github.com/HvH-gg/TeleportFix) and WeaponResctrict anymore.
 
 This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** as well as optional restrictions or allowence for **weapons**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
@@ -10,6 +10,8 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
 - Reset death `!rd`
 - Restrict weapons (awp, scout, autosniper)
 - Money fix for newly joined player
+- Insta defuse if condition are met
+- AWP bullets changer (5-30)
 - Restrict ghost exploit
 - Restrict rapid fire (0 allows rapid fire, 1 blocks rapid fire from registering shot, 2 reflects damage scaled, 3 reflects damage but keeps the player alive, 4 enables server RapidFire)
 - Restrict players from access MetaMod, CSSharp and SM commands in console.
@@ -41,6 +43,7 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
    "AllowWeaponsForFlag": "@css/restrict", // flag that ignore weapon restrictions
    "AllowedOnlyWeapons": "", // list of weapons that ONLY allowed. "weapon_ssg08" - will allow only ssg08, not AK, not AWP and etc. (pistols, nades etc always accessable)
    "AwpBullets": 10, // amount of AWP clip max bullets
+   "InstantDefuse": true, // insta defuse feature if condition are met
    "RestrictTeleport": true, // true - restrict teleport, fakepitch, crash
    "TeleportPrintMessage": false, // will print in chat if someone using exploit
    "RestrictGhost": true, // will restrict ghost exploit
