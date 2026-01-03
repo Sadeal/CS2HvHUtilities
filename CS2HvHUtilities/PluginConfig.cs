@@ -40,6 +40,7 @@ public partial class Cs2HvhUtilitiesConfig : BasePluginConfig
     [JsonPropertyName("AllowWeaponsForFlag")] public string AllowWeaponsForFlag { get; set; } = "@css/restrict";
     [JsonPropertyName("AllowedOnlyWeapons")] public string AllowedOnlyWeapons { get; set; } = "";
     [JsonPropertyName("AwpBullets")] public int AwpBullets { get; set; } = 10;
+    [JsonPropertyName("InstantDefuse")] public bool InstantDefuse { get; set; } = true;
     [JsonPropertyName("UtilitiesFriendlyFire")] public bool UtilitiesFriendlyFire { get; set; } = true;
     [JsonPropertyName("RestrictTeleport")] public bool RestrictTeleport { get; set; } = true;
     [JsonPropertyName("TeleportPrintMessage")] public bool TeleportPrintMessage { get; set; } = true;

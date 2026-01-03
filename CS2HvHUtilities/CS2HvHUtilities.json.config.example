@@ -10,6 +10,7 @@
   "AllowWeaponsForFlag": "@css/restrict",
   "AllowedOnlyWeapons": "weapon_scar20,weapon_g3sg1",
   "AwpBullets": 10,
+  "InstantDefuse": true,
   "RestrictTeleport": true,
   "TeleportPrintMessage": true,
   "RestrictGhost": true,

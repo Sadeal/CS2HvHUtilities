@@ -40,6 +40,7 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         ResetScore.hvh_resetdeath.Value = Config.AllowResetDeath;
         MoneyFix.hvh_money_fix.Value = Config.FixMoneyOnJoin;
         MetaCommandsBlocker.hvh_restrict_meta_commands.Value = Config.RestrictMetaCommands;
+        InstantDefuse.hvh_instant_defuse.Value = Config.InstantDefuse;
     }
 
     public string FormatString(string input, Dictionary<string, object> fieldValues = null)
@@ -93,6 +94,7 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         services.AddSingleton<AdBlocker>();
         services.AddSingleton<RapidFireFeature>();
         services.AddSingleton<AwpFix>();
+        services.AddSingleton<InstantDefuse>();
 
         _serviceProvider = services.BuildServiceProvider();
 
@@ -106,6 +108,7 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         UseMetaCommandsBlocker();
         UseRapidFireFeature();
         AwpFixFeature();
+        UseInstantDefuse();
 
         Console.WriteLine("[Utils] Finished loading CS2HvHUtilities plugin");
     }
@@ -214,6 +217,28 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
         RegisterListener<Listeners.OnEntityCreated>(awpFix.OnEntityCreated);
 
         Console.WriteLine("[Utils] Finished registering awp fix feature listeners");
+    }
+
+    private void UseInstantDefuse()
+    {
+        Console.WriteLine("[Utils] Register instant defuse feature listeners");
+
+        var instantDefuse = _serviceProvider!.GetRequiredService<InstantDefuse>();
+
+        RegisterEventHandler<EventRoundStart>(instantDefuse.OnRoundStart);
+        RegisterEventHandler<EventBombPlanted>(instantDefuse.OnBombPlanted);
+        RegisterEventHandler<EventBombBegindefuse>(instantDefuse.OnBombBeginDefuse);
+
+        RegisterEventHandler<EventGrenadeThrown>(instantDefuse.OnGrenadeThrown);
+
+        RegisterEventHandler<EventInfernoStartburn>(instantDefuse.OnInfernoStartBurn);
+        RegisterEventHandler<EventInfernoExtinguish>(instantDefuse.OnInfernoExtinguish);
+        RegisterEventHandler<EventInfernoExpire>(instantDefuse.OnInfernoExpire);
+
+        RegisterEventHandler<EventHegrenadeDetonate>(instantDefuse.OnHeGrenadeDetonate);
+        RegisterEventHandler<EventMolotovDetonate>(instantDefuse.OnMolotovDetonate);
+
+        Console.WriteLine("[Utils] Finished registering instant defuse feature listeners");
     }
 
     private void UseWeaponRestrict()
