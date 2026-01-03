@@ -65,10 +65,10 @@ public class Misc
 
             message = _plugin.FormatString(_plugin.Config.CustomPhrasesSettings.RapidDT, fieldValues);
             player.PrintToChat(
-                $"{message} {(_plugin.Config.RapidFireFixMethod != FixMethod.Ignore 
-                    ? $"{ChatColors.Lime}ON" 
+                $"{message} {(_plugin.Config.RapidFireFixMethod == FixMethod.Ignore 
+                    ? $"{ChatColors.Lime}OFF" 
                     : (_plugin.Config.RapidFireFixMethod == FixMethod.Allow 
-                        ? $"{ChatColors.Orange}OFF" 
+                        ? $"{ChatColors.Orange}ON" 
                         : $"{ChatColors.Red}Rapid"
                     )
                 )}"
