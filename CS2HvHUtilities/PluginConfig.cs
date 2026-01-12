@@ -52,7 +52,6 @@ public partial class Cs2HvhUtilitiesConfig : BasePluginConfig
     [JsonPropertyName("ResetDeathFlag")] public string ResetDeathFlag { get; set; } = "@css/general";
     [JsonPropertyName("ShowResetDeathPrint")] public bool ShowResetDeathPrint { get; set; } = true;
     [JsonPropertyName("RestrictMetaCommands")] public bool RestrictMetaCommands { get; set; } = true;
-    [JsonPropertyName("AllowRageQuit")] public bool AllowRageQuit { get; set; } = true;
     [JsonPropertyName("ChatPrefix")] public string ChatPrefix { get; set; } = "[{Blue}Utils{Default}]";
     [JsonPropertyName("CustomPhrasesSettings")] public Cs2CustomPhrasesSettings CustomPhrasesSettings { get; set; } = new();
     [JsonPropertyName("ConfigVersion")] public override int Version { get; set; } = 10;

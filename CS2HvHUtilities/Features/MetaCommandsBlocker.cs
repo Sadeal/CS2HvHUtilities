@@ -30,12 +30,7 @@ public class MetaCommandsBlocker
 
         if (!player.IsValid)
         {
-            return HookResult.Continue;
-        }
-
-        if (!player.PlayerPawn.IsValid)
-        {
-            return HookResult.Continue;
+            return HookResult.Stop;
         }
 
         if (AdminManager.PlayerHasPermissions(player, "@css/root"))
