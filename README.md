@@ -1,6 +1,6 @@
 ![Copyright Sadeal](https://img.shields.io/badge/Developer-Sadeal-blue)
 
-# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.5.0)
+# [Sadeal](https://sadeal.ru) CS2HvHUtilities (1.5.1)
 ### If you use this plugin, you do NOT need [RapidFireFix](https://github.com/HvH-gg/RapidFireFix), [TeleportFix](https://github.com/HvH-gg/TeleportFix) and WeaponResctrict anymore.
 
 This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH server. It includes basic features like **money fix**, **reset score**, **reset death** as well as optional restrictions or allowence for **weapons**, **rapid fire** **meta/sm/cssharp commands** and other exploit/crash fixes.
@@ -14,7 +14,7 @@ This CS2HvHUtilities plugin is the only plugin you need to run a successful HvH 
 - AWP bullets changer (5-30)
 - Restrict ghost exploit
 - Restrict rapid fire (0 allows rapid fire, 1 blocks rapid fire from registering shot, 2-4 enables server RapidFire)
-- Restrict players from access MetaMod, CSSharp and SM commands in console.
+- Restrict players from access MetaMod, CSSharp and SM commands in console (even while connecting).
 - **Linux only:** Restrict teleport/airstuck/fake-pitch exploits (enabling this will also prevent the server crash exploit)
 
 # Requirements
