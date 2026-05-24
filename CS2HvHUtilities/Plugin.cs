@@ -244,37 +244,42 @@ public class Plugin : BasePlugin, IPluginConfig<Cs2HvhUtilitiesConfig>
     private void UseWeaponRestrict()
     {
         Console.WriteLine("[Utils] Register weapon restriction listeners");
-        
-        var weaponRestrict = _serviceProvider!.GetRequiredService<WeaponRestrict>();
-        VirtualFunctions.CCSPlayer_ItemServices_CanAcquireFunc.Hook(weaponRestrict.OnWeaponCanAcquire, HookMode.Pre);
 
-        RegisterEventHandler<EventRoundAnnounceWarmup>((@event, info) =>
+        var useVirtualFunc = WeaponRestrict.hvh_restrict_awp.Value > -1 || WeaponRestrict.hvh_restrict_scout.Value > -1 || WeaponRestrict.hvh_restrict_auto.Value > -1 || WeaponRestrict.hvh_allow_only_weapons.Value.Length > 0;
+
+        if (useVirtualFunc)
         {
-            weaponRestrict.InWarmup = true;
+            var weaponRestrict = _serviceProvider!.GetRequiredService<WeaponRestrict>();
+            VirtualFunctions.CCSPlayer_ItemServices_CanAcquireFunc.Hook(weaponRestrict.OnWeaponCanAcquire, HookMode.Pre);
 
-            return HookResult.Continue;
-        });
+            RegisterEventHandler<EventRoundAnnounceWarmup>((@event, info) =>
+            {
+                weaponRestrict.InWarmup = true;
 
-        RegisterEventHandler<EventBeginNewMatch>((@event, info) =>
-        {
-            weaponRestrict.InWarmup = false;
+                return HookResult.Continue;
+            });
 
-            return HookResult.Continue;
-        });
+            RegisterEventHandler<EventBeginNewMatch>((@event, info) =>
+            {
+                weaponRestrict.InWarmup = false;
 
-        RegisterEventHandler<EventRoundPrestart>((@event, info) =>
-        {
-            weaponRestrict.InWarmup = false;
+                return HookResult.Continue;
+            });
 
-            return HookResult.Continue;
-        });
+            RegisterEventHandler<EventRoundPrestart>((@event, info) =>
+            {
+                weaponRestrict.InWarmup = false;
 
-        RegisterEventHandler<EventRoundStart>((@event, info) =>
-        {
-            weaponRestrict.InWarmup = false;
+                return HookResult.Continue;
+            });
 
-            return HookResult.Continue;
-        });
+            RegisterEventHandler<EventRoundStart>((@event, info) =>
+            {
+                weaponRestrict.InWarmup = false;
+
+                return HookResult.Continue;
+            });
+        }
 
         Console.WriteLine("[Utils] Finished registering weapon restriction listeners");
     }

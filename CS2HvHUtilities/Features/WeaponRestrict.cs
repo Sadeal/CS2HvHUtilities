@@ -53,7 +53,7 @@ public class WeaponRestrict
 
     public HookResult OnWeaponCanAcquire(DynamicHook hook)
     {
-        if (checkWarmup && InWarmup)
+        if (checkWarmup && InWarmup || (hvh_allow_only_weapons.Value.Length <= 0 && hvh_restrict_awp.Value <= -1 && hvh_restrict_scout.Value <= -1 && hvh_restrict_auto.Value <= -1))
             return HookResult.Continue;
 
         CCSWeaponBaseVData vdata = VirtualFunctions.GetCSWeaponDataFromKeyFunc.Invoke(-1, hook.GetParam<CEconItemView>(1).ItemDefinitionIndex.ToString()) ?? throw new Exception("Failed to get CCSWeaponBaseVData");
@@ -61,6 +61,9 @@ public class WeaponRestrict
         CCSPlayerController client = hook.GetParam<CCSPlayer_ItemServices>(0).Pawn.Value!.Controller.Value!.As<CCSPlayerController>();
 
         if (client == null || !client.IsValid || !client.PawnIsAlive)
+            return HookResult.Continue;
+
+        if (AdminManager.PlayerHasPermissions(client, "@css/root") || AdminManager.PlayerHasPermissions(client, AllowedFlag))
             return HookResult.Continue;
 
         if (hvh_allow_only_weapons.Value.Length > 0)
@@ -129,9 +132,6 @@ public class WeaponRestrict
                 return HookResult.Stop;
             }
         }
-
-        if (AdminManager.PlayerHasPermissions(client, "@css/root") || AdminManager.PlayerHasPermissions(client, AllowedFlag))
-            return HookResult.Continue;
 
         int limit = GetAllowedWeaponCount(vdata.Name);
         bool disabled = limit <= -1;

@@ -34,31 +34,23 @@ public class RapidFire
         if (hvh_restrict_rapidfire.Value != (int)FixMethod.Ignore)
             return HookResult.Continue;
 
-        if (evt.Userid?.Pawn?.Value?.WeaponServices?.ActiveWeapon?.Value == null)
-            return HookResult.Continue;
+        CBasePlayerWeapon firedWeapon = evt.Userid?.Pawn?.Value?.WeaponServices?.ActiveWeapon?.Value!;
 
-        CBasePlayerWeapon firedWeapon = evt.Userid.Pawn.Value.WeaponServices.ActiveWeapon.Value!;
+        if (firedWeapon == null || firedWeapon.DesignerName == "weapon_revolver")
+            return HookResult.Continue;
 
         CCSWeaponBaseVData? weaponData = firedWeapon.GetVData<CCSWeaponBaseVData>();
 
         if (weaponData == null)
             return HookResult.Continue;
 
-        if (firedWeapon.DesignerName == "weapon_revolver")
-            return HookResult.Continue;
-
-        int tickBase = (int)evt.Userid.TickBase;
+        int tickBase = (int)evt.Userid?.TickBase!;
 
         int fixedPrimaryTick = (int)Math.Round(weaponData.CycleTime.Values[0] * 64) - 3;
-        firedWeapon.NextPrimaryAttackTick = Math.Max(firedWeapon.NextPrimaryAttackTick, tickBase + fixedPrimaryTick);
-        Utilities.SetStateChanged(firedWeapon, "CBasePlayerWeapon", "m_nNextPrimaryAttackTick");
 
-        if (firedWeapon.DesignerName == "weapon_revolver")
-        {
-            int fixedSecondaryTick = (int)Math.Round(weaponData.CycleTime.Values[1] * 64) - 3;
-            firedWeapon.NextSecondaryAttackTick = Math.Max(firedWeapon.NextSecondaryAttackTick, tickBase + fixedSecondaryTick);
-            Utilities.SetStateChanged(firedWeapon, "CBasePlayerWeapon", "m_flNextPrimaryAttackTickRatio");
-        }
+        firedWeapon.NextPrimaryAttackTick = Math.Max(firedWeapon.NextPrimaryAttackTick, tickBase + fixedPrimaryTick);
+
+        Utilities.SetStateChanged(firedWeapon, "CBasePlayerWeapon", "m_nNextPrimaryAttackTick");
 
         return HookResult.Continue;
     }

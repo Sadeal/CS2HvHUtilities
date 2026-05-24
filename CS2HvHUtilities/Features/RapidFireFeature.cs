@@ -1,6 +1,8 @@
 ﻿using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
+using CounterStrikeSharp.API.Modules.Entities;
 using cs2hvh_utilities.Enums;
+using System.Numerics;
 
 namespace cs2hvh_utilities.Features;
 
